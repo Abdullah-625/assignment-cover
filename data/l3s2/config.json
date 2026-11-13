@@ -1,0 +1,12 @@
+{
+  "label": "Level 3 · Semester 2",
+  "session": "2022-23",
+  "footer": "Faculty of Agricultural Engineering and Technology\nBangladesh Agricultural University\nMymensingh -2202",
+  "departments": {
+    "FSEE":  { "name": "Farm Structure & Environmental Engineering", "set": "C" },
+    "FPM":   { "name": "Farm Power and Machinery",                   "set": "B" },
+    "IWM":   { "name": "Irrigation and Water Management",            "set": "D" },
+    "CSM":   { "name": "Computer Science and Mathematics",           "set": "A" },
+    "AGEXT": { "name": "Agricultural Extension and Education",       "set": "" }
+  }
+}

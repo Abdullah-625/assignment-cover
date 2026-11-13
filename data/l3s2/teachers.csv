@@ -1,0 +1,25 @@
+tid,name,designation,department,photo
+T01,Md. Zainul Abedin,Professor,FSEE,ZA.webp
+T02,Md. Zillur Rahman,Professor,FSEE,ZR.webp
+T03,Zahida Muyen,Professor,FSEE,ZM.webp
+T04,Md. Bellal Hossain,Professor,FSEE,BH.webp
+T05,Zikesh Barman,Assistant Professor,FSEE,ZB.webp
+T06,Md. Abdul Awal,Professor,FPM,AA.webp
+T07,Chayan Kumer Saha,Professor,FPM,CKS.webp
+T08,Md. Rostom Ali,Professor,FPM,RA.webp
+T09,Anisur Rahman,Professor,FPM,AsR.webp
+T10,Md. Sanaul Huda,Associate Professor,FPM,SH.webp
+T11,Sahabuddin Ahamed,Assistant Professor,FPM,SA.webp
+T12,Al-Amin,Lecturer,FPM,AAm.webp
+T13,A.K.M. Adham,Professor,IWM,AKMA.webp
+T14,M. G. Mostofa Amin,Professor,IWM,MGMA.webp
+T15,Deen Islam,Professor,IWM,DI.webp
+T16,Mohammed Mizanur Rahman,Professor,IWM,MMR.webp
+T17,Khalid Mahmud,Professor,IWM,KM.webp
+T18,Juli Akter,Lecturer,IWM,JA.webp
+T19,Md. Saif Uddin,Lecturer,CSM,SU.webp
+T20,S. M. Abdullah Ashik,Lecturer,CSM,SMAA.webp
+T21,Shonia Sheheli,Professor,AGEXT,SS.webp
+T22,Md. Masud Rana,Associate Professor,AGEXT,MR.webp
+T23,Md. Asifur Rahman,Assistant Professor,AGEXT,AR.webp
+T24,Saifur Rahman,Lecturer,AGEXT,SR.webp
