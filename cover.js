@@ -18,19 +18,19 @@
   const FIELDS = [
     F('asgNo',   'Assignment no. line', 'Top',        { x: 125, y: 76,  w: 500, h: 36, align: 'center', font: 'Changa', size: 19 }),
     F('heading', 'Heading',             'Top',        { x: 125, y: 122, w: 500, h: 36, align: 'center', font: 'Changa', size: 30 }),
-    F('asgName', 'Assignment name (box)','Top',       { x: 84,  y: 196, w: 582, h: 80, align: 'center', font: 'Cairo', size: 22, bold: true }),
-    F('courseNo','Course No.',          'Course',     { x: 125, y: 329, w: 500, h: 26, align: 'center', font: 'Calibri', size: 20, italic: true }),
-    F('courseTitle','Course Title',     'Course',     { x: 75,  y: 351, w: 600, h: 26, align: 'center', font: 'Calibri', size: 20, italic: true }),
-    F('lblDateA','Label: Date of Assignment','Dates', { x: 85,  y: 493, w: 257, h: 30, align: 'center', font: 'Changa', size: 19 }),
-    F('lblDateS','Label: Date of Submission','Dates',{ x: 408, y: 493, w: 257, h: 30, align: 'center', font: 'Changa', size: 19 }),
+    F('asgName', 'Assignment name (box)','Top',       { x: 84,  y: 196, w: 582, h: 80, align: 'center', font: 'Cairo', size: 22 }),
+    F('courseNo','Course No.',          'Course',     { x: 125, y: 329, w: 500, h: 26, align: 'center', font: 'Calibri', size: 20, italic: true , halo: true}),
+    F('courseTitle','Course Title',     'Course',     { x: 75,  y: 351, w: 600, h: 26, align: 'center', font: 'Calibri', size: 20, italic: true , halo: true}),
+    F('lblDateA','Label: Date of Assignment','Dates', { x: 85,  y: 493, w: 257, h: 30, align: 'center', font: 'Changa', size: 19 , halo: true}),
+    F('lblDateS','Label: Date of Submission','Dates',{ x: 408, y: 493, w: 257, h: 30, align: 'center', font: 'Changa', size: 19 , halo: true}),
     F('dateA',   'Date of Assignment',  'Dates',      { x: 95,  y: 530, w: 237, h: 58, align: 'center', font: 'Cairo', size: 17 }),
     F('dateS',   'Date of Submission',  'Dates',      { x: 418, y: 530, w: 237, h: 58, align: 'center', font: 'Cairo', size: 17 }),
-    F('lblTo',   'Label: Submitted to', 'Teacher',    { x: 68,  y: 613, w: 290, h: 30, align: 'center', font: 'Changa', size: 19 }),
+    F('lblTo',   'Label: Submitted to', 'Teacher',    { x: 68,  y: 613, w: 290, h: 30, align: 'center', font: 'Changa', size: 19 , halo: true}),
     F('tName',   'Teacher name',        'Teacher',    { x: 85,  y: 687, w: 262, h: 30, bold: true }),
     F('tDesig',  'Designation',         'Teacher',    { x: 85,  y: 729, w: 262, h: 30 }),
     F('tDeptOf', '"Department of"',     'Teacher',    { x: 85,  y: 759, w: 262, h: 30 }),
     F('tDept',   'Teacher department',  'Teacher',    { x: 85,  y: 789, w: 262, h: 80, v: 't', lh: 30, multiline: true }),
-    F('lblBy',   'Label: Submitted by', 'Student',    { x: 391, y: 613, w: 290, h: 30, align: 'center', font: 'Changa', size: 19 }),
+    F('lblBy',   'Label: Submitted by', 'Student',    { x: 391, y: 613, w: 290, h: 30, align: 'center', font: 'Changa', size: 19 , halo: true}),
     F('lName', 'Label: Name',    'Student', { x: 408, y: 688, w: 80, h: 30 }),
     F('lId',   'Label: ID',      'Student', { x: 408, y: 718, w: 80, h: 30 }),
     F('lReg',  'Label: Reg.',    'Student', { x: 408, y: 748, w: 80, h: 30 }),
@@ -75,7 +75,8 @@
     logo.className = 'cover-logo';
     logo.src = 'assets/bau-logo.png';
     logo.alt = '';
-    logo.style.cssText = `left:${148 * SX}px;top:${320 * SY}px;width:${452 * SX}px;opacity:${(state.opacity ?? 25) / 100}`;
+    const LW = 452 * 0.9, LH = LW * 1028 / 1200;      // 10% smaller than the original
+    logo.style.cssText = `left:${(374 - LW / 2) * SX}px;top:${(654 - LH) * SY}px;width:${LW * SX}px;opacity:${(state.opacity ?? 25) / 100}`;
     root.appendChild(logo);
 
     // frames
@@ -94,7 +95,7 @@
       d.style.justifyContent = st.align === 'center' ? 'center' : st.align === 'right' ? 'flex-end' : 'flex-start';
       d.style.alignItems = f.v === 't' ? 'flex-start' : 'center';
       const s = document.createElement('span');
-      s.className = 'ft';
+      s.className = 'ft' + (f.halo ? ' halo' : '');
       s.textContent = (f.prefix || '') + txt;
       s.style.fontFamily = (FONTS[st.font] || { css: `"${st.font}", sans-serif` }).css;
       s.style.fontSize = (st.size * 96 / 72) + 'px';

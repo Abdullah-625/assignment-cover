@@ -19,61 +19,39 @@
     </div>
   </div>
   <ol class="steps" id="steps">
-    <li data-s="1">Student &amp; course</li>
-    <li data-s="2">Assignment</li>
-    <li data-s="3">Edit</li>
-    <li data-s="4">Download</li>
+    <li data-s="1">Course</li>
+    <li data-s="2">Details</li>
+    <li data-s="3">Download</li>
   </ol>
 </header>
 
 <main>
-<!-- STEP 1 -->
+<!-- STEP 1 : Course -->
 <section id="s1" class="screen">
   <div class="card narrow">
-    <h2>Who are you, and which course?</h2>
+    <h2>Create your cover</h2>
 
     <label>Student ID
-      <input id="idInput" list="idList" inputmode="numeric" autocomplete="off" placeholder="Type or pick your ID, e.g. 2305043">
+      <select id="idSel"></select>
     </label>
-    <datalist id="idList"></datalist>
-    <div id="studentCard" class="info" hidden>
-      <div><span>Name</span><b id="stName"></b></div>
-      <div><span>Reg.</span><b id="stReg"></b></div>
-      <div><span>Set</span><b id="stSet"></b></div>
-    </div>
-    <p id="idMsg" class="msg" hidden></p>
+    <p id="stName" class="who" hidden></p>
 
-    <div class="row2">
-      <label>Department of the course
-        <select id="deptSel"></select>
-      </label>
-      <label>Course
-        <select id="courseSel"></select>
-      </label>
-    </div>
-    <div class="row2">
-      <label>Theory / Practical
-        <select id="typeSel"></select>
-      </label>
-      <label>Course code
-        <input id="codeOut" readonly>
-      </label>
-    </div>
+    <label>Course
+      <select id="courseSel"></select>
+    </label>
 
     <label>Teacher
       <div class="teacher-pick">
         <img id="tPhoto" alt="" hidden>
-        <div id="tInitial" class="initial" hidden></div>
         <select id="teacherSel"></select>
       </div>
     </label>
-    <p class="hint" id="teacherHint"></p>
 
-    <div class="actions"><button class="primary" id="go1" disabled>Create →</button></div>
+    <div class="actions"><button class="primary" id="go1" disabled>Next →</button></div>
   </div>
 </section>
 
-<!-- STEP 2 -->
+<!-- STEP 2 : Details -->
 <section id="s2" class="screen" hidden>
   <div class="card narrow">
     <h2>Assignment details</h2>
@@ -84,24 +62,27 @@
       </label>
     </div>
 
-    <div class="row2">
+    <div class="numrow">
       <label>Assignment no.
-        <input id="asgNum" inputmode="numeric" placeholder="e.g. 8">
+        <input id="asgNum" inputmode="numeric" placeholder="e.g. 6">
       </label>
-      <label class="check"><input type="checkbox" id="zeroPad"> Add a leading 0 (1–9 → 01–09)</label>
+      <label class="check" title="1–9 becomes 01–09"><input type="checkbox" id="zeroPad"> Add leading 0</label>
     </div>
+
     <label>Assignment name
       <input id="asgNameIn" placeholder="e.g. Landfill site selection">
     </label>
 
     <div class="row2">
+      <label>Date of assignment
+        <input type="date" id="dateAsg">
+      </label>
       <label>Date of submission
         <input type="date" id="dateSub">
       </label>
-      <label>Date of assignment <small>(7 days before by default)</small>
-        <input type="date" id="dateAsg">
-      </label>
     </div>
+    <p class="hint">Dates are 7 days apart by default. Change either one if the class schedule moves.</p>
+
     <label>Date format
       <select id="dateFmt">
         <option value="d Mon, yy">13 Nov, 26</option>
@@ -110,66 +91,50 @@
         <option value="dd/mm/yy">13/11/26</option>
       </select>
     </label>
-    <p class="hint">Change either date freely — class schedules move. Editing one date updates the other (±7 days) until you set both yourself.</p>
 
     <div class="actions">
       <button id="back2">← Back</button>
-      <button id="skip2" title="Leave the assignment no., name and dates blank, to write by hand">Skip (leave blank)</button>
+      <button class="skip" id="skip2" title="Leave assignment no., name and dates blank, to write by hand">Skip</button>
       <button class="primary" id="go2">Next →</button>
     </div>
   </div>
 </section>
 
-<!-- STEP 3 -->
+<!-- STEP 3 : Download -->
 <section id="s3" class="screen" hidden>
   <div class="split">
-    <div class="card editor">
-      <h2>Check &amp; edit everything</h2>
-      <div class="toolbar">
-        <label class="btn-file">Add custom font <input type="file" id="fontFile" accept=".ttf,.otf,.woff,.woff2"></label>
-        <button id="resetAll">Reset all styles</button>
-      </div>
-      <div id="editor"></div>
-      <div class="actions sticky">
-        <button id="back3">← Back</button>
-        <button class="primary" id="go3">Preview →</button>
-      </div>
-    </div>
     <div class="live">
-      <div class="live-label">Live preview (A4)</div>
       <div class="page-frame" id="frame3"><div id="cover3"></div></div>
     </div>
-  </div>
-</section>
 
-<!-- STEP 4 -->
-<section id="s4" class="screen" hidden>
-  <div class="split final">
-    <div class="live">
-      <div class="page-frame" id="frame4"><div id="cover4"></div></div>
-    </div>
     <div class="card side">
-      <h2>Final preview</h2>
-      <p class="hint">Page size is fixed to A4.</p>
       <label>Logo opacity
+        <div class="chips">
+          <button type="button" class="chip" data-op="25">B/W print · 25%</button>
+          <button type="button" class="chip" data-op="65">Colour · 65%</button>
+        </div>
         <select id="opacity"></select>
       </label>
-      <p class="hint"><b>25%</b> is recommended for black &amp; white print. Use <b>100%</b> for colour print.</p>
 
-      <div class="actions col">
-        <button class="primary" id="dl">⬇ Download PDF</button>
-        <div class="print-n">
-          <button id="printN">🖨 Print</button>
-          <input type="number" id="copies" min="1" max="50" value="1" aria-label="copies"> <span>copies</span>
+      <button class="primary big" id="dl">⬇ Download PDF</button>
+      <p class="hint center">A4 · ready to print</p>
+
+      <details class="adv" id="adv">
+        <summary>Advanced edit</summary>
+        <div class="toolbar">
+          <label class="btn-file">Add custom font <input type="file" id="fontFile" accept=".ttf,.otf,.woff,.woff2"></label>
+          <button id="resetAll" type="button">Reset all styles</button>
         </div>
-        <button id="back4">← Edit again</button>
-      </div>
+        <div id="editor"></div>
+      </details>
 
       <div class="thanks" id="thanks">
         <h3>ধন্যবাদ! Thank you 💚</h3>
         <p>Good luck with the submission.<br>
         <a href="#" id="again">Make another cover</a></p>
       </div>
+
+      <div class="actions"><button id="back3">← Back</button></div>
     </div>
   </div>
 </section>
