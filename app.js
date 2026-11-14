@@ -377,7 +377,8 @@
       document.body.removeChild(stage);
       const pdf = new jspdf.jsPDF({ unit: 'mm', format: 'a4', orientation: 'portrait' });
       pdf.addImage(canvas.toDataURL('image/png'), 'PNG', 0, 0, 210, 297, undefined, 'FAST');
-      const name = `Assignment_${(S.course.code || 'cover').replace(/\s+/g, '')}_${S.student.id}.pdf`;
+      const nm = (S.course.short || S.course.title || 'cover').replace(/[^\p{L}\p{N}]+/gu, '-').replace(/^-+|-+$/g, '');
+      const name = `Assignment_${nm}_${S.student.id}.pdf`;
       pdf.save(name);
       if (S.usedNo != null) store.set('asg_' + S.course.code, S.usedNo);   // next time suggest +1
       toast('Downloaded ' + name);
@@ -396,6 +397,17 @@
     setTimeout(() => window.print(), 100);
   }
 
+  /* ---------- in-app browser reminder ---------- */
+  function iabNotice() {
+    const ua = navigator.userAgent || '';
+    if (!/FBAN|FBAV|FB_IAB|FBIOS|Messenger|Instagram|MicroMessenger|; wv\)/i.test(ua)) return;
+    const html = '<b>⚠ Messenger/Facebook-এর ভেতরের ব্রাউজারে PDF ডাউনলোড কাজ নাও করতে পারে।</b><br>ওপরের ⋮ (৩ ডট) চেপে <b>"Open in browser" / "Chrome-এ খুলুন"</b> দিন।<br><button type="button" class="cp">Copy link</button>';
+    ['iabTop', 'iabDl'].forEach(id => {
+      const el = $(id); el.innerHTML = html; el.hidden = false;
+      el.querySelector('.cp').onclick = async () => { try { await navigator.clipboard.writeText(location.href); toast('Link copied — paste it in your browser'); } catch (e) { toast(location.href); } };
+    });
+  }
+
   /* ---------- boot ---------- */
   async function boot() {
     try {
@@ -409,7 +421,7 @@
       return;
     }
     $('levelLabel').textContent = 'Dhrubok 59 · ' + D.config.label;
-    initStep1(); wireStep2(); wireStep3(); go(1);
+    initStep1(); wireStep2(); wireStep3(); iabNotice(); go(1);
   }
   boot();
 })();

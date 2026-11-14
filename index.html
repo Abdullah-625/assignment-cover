@@ -4,12 +4,27 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Assignment Cover Maker</title>
+<meta name="description" content="Make your BAU assignment cover in seconds. Pick your course, download an A4 PDF.">
+<meta name="theme-color" content="#0b6b3a">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/icon-192.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Assignment Cover Maker">
+<meta property="og:description" content="Make your BAU assignment cover in seconds. Pick your course, download an A4 PDF.">
+<meta property="og:url" content="https://abdullah365.dev/assignment-cover/">
+<meta property="og:image" content="https://abdullah365.dev/assignment-cover/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://abdullah365.dev/assignment-cover/og-image.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Changa:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div class="iab" id="iabTop" hidden></div>
 <header class="top">
   <div class="brand">
     <img src="assets/dhrubok59.png" alt="" class="batch-logo" onerror="this.remove()">
@@ -64,13 +79,13 @@
 
     <div class="numrow">
       <label>Assignment no.
-        <input id="asgNum" inputmode="numeric" placeholder="e.g. 6">
+        <input id="asgNum" inputmode="numeric" placeholder="e.g. 8">
       </label>
       <label class="check" title="1–9 becomes 01–09"><input type="checkbox" id="zeroPad"> Add leading 0</label>
     </div>
 
     <label>Assignment name
-      <input id="asgNameIn" placeholder="e.g. Landfill site selection">
+      <input id="asgNameIn" placeholder="e.g. Study on Tractor">
     </label>
 
     <div class="row2">
@@ -116,6 +131,7 @@
         <select id="opacity"></select>
       </label>
 
+      <div class="iab" id="iabDl" hidden></div>
       <button class="primary big" id="dl">⬇ Download PDF</button>
       <p class="hint center">A4 · ready to print</p>
 

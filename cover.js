@@ -107,6 +107,10 @@
       s.style.maxWidth = '100%';
       s.style.wordBreak = 'break-word';
       s.dataset.fit = st.fit;
+      if (f.key === 'asgNo' && !/\d/.test(txt)) {
+        // blank number: keep an invisible "000" so the line stays centred once a number is handwritten
+        const ph = document.createElement('span'); ph.textContent = ' 000'; ph.style.color = 'transparent'; s.appendChild(ph);
+      }
       d.appendChild(s);
       root.appendChild(d);
     });

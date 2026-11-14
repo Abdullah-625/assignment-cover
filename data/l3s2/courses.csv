@@ -1,24 +1,24 @@
 department,code,title,type,teachers,short
-FSEE,FSEE 3215,Waste Management,Theory,T02;T03,Waste Mg.
-FSEE,FSEE 3216,Waste Management,Practical,T02;T03,Waste Mg.
+FSEE,FSEE 3215,Waste Management,Theory,T02;T03,Waste Management
+FSEE,FSEE 3216,Waste Management,Practical,T02;T03,Waste Management
 FSEE,FSEE 3213,Water Pollution and Treatment,Theory,T03;T05,Water Pollution
 FSEE,FSEE 3214,Water Pollution and Treatment,Practical,T03;T05,Water Pollution
 FPM,FPM 3211,Agricultural Machinery,Theory,T07;T09,Ag. Machinery
 FPM,FPM 3212,Agricultural Machinery,Practical,T09;T10,Ag. Machinery
 FSEE,FSEE 3211,Soil Mechanics,Theory,T01;T04,Soil Mechanics
 FSEE,FSEE 3212,Soil Mechanics,Practical,T01;T04,Soil Mechanics
-AGEXT,AGEXT 3203,Extension for Ag. Eng.,Theory,T22;T21,Extension
-AGEXT,AGEXT 3204,Skills in Extension Communication (Practical),Practical,T22;T24;T23,Extension
-IWM,IWM 3205,Irrigation Science,Theory,T15;T14,Irrigation Sci.
-IWM,IWM 3206,Irrigation Science,Practical,T15;T14,Irrigation Sci.
+AGEXT,AGEXT 3203,Extension for Ag. Eng.,Theory,T22;T21,Agri. Extension
+AGEXT,AGEXT 3204,Skills in Extension Communication (Practical),Practical,T22;T24;T23,Agri. Extension
+IWM,IWM 3205,Irrigation Science,Theory,T15;T14,Irrigation Science
+IWM,IWM 3206,Irrigation Science,Practical,T15;T14,Irrigation Science
 CSM,CSM 3202,Applied Programming (Practical),Practical,T19;T20,Programming
 IWM,IWM 3207,Hydrology,Theory,T16;T17,Hydrology
 IWM,IWM 3208,Hydrology,Practical,T16;T17,Hydrology
-IWM,IWM 3209,Irrigation Water Quality and Treatment,Theory,T13;T18,Irrig. Water Quality
-IWM,IWM 3210,Irrigation Water Quality and Treatment,Practical,T13;T18,Irrig. Water Quality
+IWM,IWM 3209,Irrigation Water Quality and Treatment,Theory,T13;T18,Ig. Water Quality
+IWM,IWM 3210,Irrigation Water Quality and Treatment,Practical,T13;T18,Ig. Water Quality
 FPM,FPM 3217,Manufacturing Methods and Quality Control,Theory,T08;T12,Manufacturing
 FPM,FPM 3218,Manufacturing Methods and Quality Control,Practical,T08;T12,Manufacturing
-FPM,FPM 3215,Precision Agriculture,Theory,T06;T09;T11,Precision Ag.
-FPM,FPM 3216,Precision Agriculture,Practical,T06;T09;T11,Precision Ag.
-FPM,FPM 3213,Refrigeration and Air Conditioning Engineering,Theory,T06;T09;T12,Ref. & Air Con.
-FPM,FPM 3214,Refrigeration and Air Conditioning Engineering,Practical,T06;T09;T12,Ref. & Air Con.
+FPM,FPM 3215,Precision Agriculture,Theory,T06;T09;T11,Precision Agriculture
+FPM,FPM 3216,Precision Agriculture,Practical,T06;T09;T11,Precision Agriculture
+FPM,FPM 3213,Refrigeration and Air Conditioning Engineering,Theory,T06;T09;T12,Ref. & Air Con
+FPM,FPM 3214,Refrigeration and Air Conditioning Engineering,Practical,T06;T09;T12,Ref. & Air Con

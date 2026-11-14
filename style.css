@@ -136,3 +136,9 @@ button.big{width:100%;padding:16px 18px;font-size:17px;border-radius:12px;margin
 .row2{margin-bottom:12px}
 .numrow .check{white-space:nowrap}
 a{color:var(--accent)}
+
+.iab{background:#fff3bf;color:#3d2f00;padding:10px 14px;font-size:14px;line-height:1.4;border-bottom:1px solid #e6c84a}
+.side .iab{border:1px solid #e6c84a;border-radius:10px;margin-bottom:10px}
+.iab b{font-weight:700}
+.iab button{margin-top:6px;padding:5px 10px;font-size:13px;background:#fff;color:#3d2f00;border-color:#cfae2a}
+.iab[hidden]{display:none}
