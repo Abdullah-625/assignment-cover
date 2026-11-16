@@ -6,18 +6,15 @@
 <title>Assignment Cover Maker</title>
 <meta name="description" content="Make your BAU assignment cover in seconds. Pick your course, download an A4 PDF.">
 <meta name="theme-color" content="#0b6b3a">
-<link rel="icon" href="favicon.ico" sizes="any">
-<link rel="icon" type="image/png" sizes="192x192" href="assets/icon-192.png">
-<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="assets/dhrubok59.png">
+<link rel="apple-touch-icon" href="assets/dhrubok59.png">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Assignment Cover Maker">
 <meta property="og:description" content="Make your BAU assignment cover in seconds. Pick your course, download an A4 PDF.">
 <meta property="og:url" content="https://abdullah365.dev/assignment-cover/">
-<meta property="og:image" content="https://abdullah365.dev/assignment-cover/og-image.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://abdullah365.dev/assignment-cover/og-image.png">
+<meta property="og:image" content="https://abdullah365.dev/assignment-cover/assets/dhrubok59.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://abdullah365.dev/assignment-cover/assets/dhrubok59.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Changa:wght@400;500;700&display=swap" rel="stylesheet">
@@ -26,13 +23,13 @@
 <body>
 <div class="iab" id="iabTop" hidden></div>
 <header class="top">
-  <div class="brand">
+  <a class="brand" id="home" href="./" title="Back to the start">
     <img src="assets/dhrubok59.png" alt="" class="batch-logo" onerror="this.remove()">
     <div>
       <h1>Assignment Cover Maker</h1>
       <p id="levelLabel">Dhrubok 59 · BAU</p>
     </div>
-  </div>
+  </a>
   <ol class="steps" id="steps">
     <li data-s="1">Course</li>
     <li data-s="2">Details</li>
@@ -96,7 +93,7 @@
         <input type="date" id="dateSub">
       </label>
     </div>
-    <p class="hint">Dates are 7 days apart by default. Change either one if the class schedule moves.</p>
+    <p class="hint">Dates are optional — leave them empty to write by hand. Pick one date and the other fills in 7 days apart; you can still change it.</p>
 
     <label>Date format
       <select id="dateFmt">
@@ -145,7 +142,7 @@
       </details>
 
       <div class="thanks" id="thanks">
-        <h3>ধন্যবাদ! Thank you 💚</h3>
+        <h3>Thank you 💚</h3>
         <p>Good luck with the submission.<br>
         <a href="#" id="again">Make another cover</a></p>
       </div>

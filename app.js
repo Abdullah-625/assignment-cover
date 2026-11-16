@@ -193,17 +193,16 @@
     const last = parseInt(store.get('asg_' + code), 10);
     $('asgNum').value = Number.isFinite(last) ? String(last + 1) : '';
     $('asgNameIn').value = '';
-    if (!S.dates.sub) { S.dates.sub = todayISO(); S.dates.asg = shiftDate(S.dates.sub, -7); }
-    $('dateSub').value = S.dates.sub; $('dateAsg').value = S.dates.asg; $('dateFmt').value = S.dates.fmt;
+    $('dateSub').value = S.dates.sub; $('dateAsg').value = S.dates.asg; $('dateFmt').value = S.dates.fmt;   // empty until the user picks a date
   }
   function wireStep2() {
     $('dateSub').addEventListener('change', () => {
       S.dates.sub = $('dateSub').value; S.dates.subTouched = true;
-      if (!S.dates.asgTouched && S.dates.sub) { S.dates.asg = shiftDate(S.dates.sub, -7); $('dateAsg').value = S.dates.asg; }
+      if (!S.dates.asgTouched && S.dates.sub && !S.dates.asg) { S.dates.asg = shiftDate(S.dates.sub, -7); $('dateAsg').value = S.dates.asg; }
     });
     $('dateAsg').addEventListener('change', () => {
       S.dates.asg = $('dateAsg').value; S.dates.asgTouched = true;
-      if (!S.dates.subTouched && S.dates.asg) { S.dates.sub = shiftDate(S.dates.asg, 7); $('dateSub').value = S.dates.sub; }
+      if (!S.dates.subTouched && S.dates.asg && !S.dates.sub) { S.dates.sub = shiftDate(S.dates.asg, 7); $('dateSub').value = S.dates.sub; }
     });
     $('dateFmt').addEventListener('change', () => { S.dates.fmt = $('dateFmt').value; });
     $('back2').addEventListener('click', () => go(1));
@@ -378,7 +377,8 @@
       const pdf = new jspdf.jsPDF({ unit: 'mm', format: 'a4', orientation: 'portrait' });
       pdf.addImage(canvas.toDataURL('image/png'), 'PNG', 0, 0, 210, 297, undefined, 'FAST');
       const nm = (S.course.short || S.course.title || 'cover').replace(/[^\p{L}\p{N}]+/gu, '-').replace(/^-+|-+$/g, '');
-      const name = `Assignment_${nm}_${S.student.id}.pdf`;
+      const tp = S.course.type === 'Practical' ? 'P-' : S.course.type === 'Theory' ? 'T-' : '';
+      const name = `Assignment_${tp}${nm}_${S.student.id}.pdf`;
       pdf.save(name);
       if (S.usedNo != null) store.set('asg_' + S.course.code, S.usedNo);   // next time suggest +1
       toast('Downloaded ' + name);
@@ -401,7 +401,7 @@
   function iabNotice() {
     const ua = navigator.userAgent || '';
     if (!/FBAN|FBAV|FB_IAB|FBIOS|Messenger|Instagram|MicroMessenger|; wv\)/i.test(ua)) return;
-    const html = '<b>⚠ Messenger/Facebook-এর ভেতরের ব্রাউজারে PDF ডাউনলোড কাজ নাও করতে পারে।</b><br>ওপরের ⋮ (৩ ডট) চেপে <b>"Open in browser" / "Chrome-এ খুলুন"</b> দিন।<br><button type="button" class="cp">Copy link</button>';
+    const html = '<b>⚠ Downloads may not work inside Messenger / Facebook\'s built-in browser.</b><br>Tap the ⋮ (three dots) and choose <b>"Open in browser"</b> or <b>"Open in Chrome"</b>.<br><button type="button" class="cp">Copy link</button>';
     ['iabTop', 'iabDl'].forEach(id => {
       const el = $(id); el.innerHTML = html; el.hidden = false;
       el.querySelector('.cp').onclick = async () => { try { await navigator.clipboard.writeText(location.href); toast('Link copied — paste it in your browser'); } catch (e) { toast(location.href); } };
@@ -421,6 +421,8 @@
       return;
     }
     $('levelLabel').textContent = 'Dhrubok 59 · ' + D.config.label;
+    $('home').addEventListener('click', e => { e.preventDefault(); go(1); });
+    document.querySelectorAll('#steps li').forEach(li => li.addEventListener('click', () => { const k = +li.dataset.s; if (k < step) go(k); }));
     initStep1(); wireStep2(); wireStep3(); iabNotice(); go(1);
   }
   boot();

@@ -3,6 +3,7 @@
 (function () {
   const REF_W = 750, REF_H = 1083, PW = 794, PH = 1123;
   const SX = PW / REF_W, SY = PH / REF_H;
+  const PLACEHOLDER_ZEROS = 9;   // invisible digits after a blank "Assignment no." — pushes it left so a handwritten number still looks centred
 
   const FONTS = {
     'Changa':                 { css: '"Changa", sans-serif' },
@@ -109,7 +110,7 @@
       s.dataset.fit = st.fit;
       if (f.key === 'asgNo' && !/\d/.test(txt)) {
         // blank number: keep an invisible "000" so the line stays centred once a number is handwritten
-        const ph = document.createElement('span'); ph.textContent = ' 000'; ph.style.color = 'transparent'; s.appendChild(ph);
+        const ph = document.createElement('span'); ph.textContent = ' ' + '0'.repeat(PLACEHOLDER_ZEROS); ph.style.color = 'transparent'; s.appendChild(ph);
       }
       d.appendChild(s);
       root.appendChild(d);

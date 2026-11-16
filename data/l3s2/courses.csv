@@ -3,8 +3,8 @@ FSEE,FSEE 3215,Waste Management,Theory,T02;T03,Waste Management
 FSEE,FSEE 3216,Waste Management,Practical,T02;T03,Waste Management
 FSEE,FSEE 3213,Water Pollution and Treatment,Theory,T03;T05,Water Pollution
 FSEE,FSEE 3214,Water Pollution and Treatment,Practical,T03;T05,Water Pollution
-FPM,FPM 3211,Agricultural Machinery,Theory,T07;T09,Ag. Machinery
-FPM,FPM 3212,Agricultural Machinery,Practical,T09;T10,Ag. Machinery
+FPM,FPM 3211,Agricultural Machinery,Theory,T07;T09;T12,Agri. Machinery
+FPM,FPM 3212,Agricultural Machinery,Practical,T09;T10,Agri. Machinery
 FSEE,FSEE 3211,Soil Mechanics,Theory,T01;T04,Soil Mechanics
 FSEE,FSEE 3212,Soil Mechanics,Practical,T01;T04,Soil Mechanics
 AGEXT,AGEXT 3203,Extension for Ag. Eng.,Theory,T22;T21,Agri. Extension

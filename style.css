@@ -142,3 +142,7 @@ a{color:var(--accent)}
 .iab b{font-weight:700}
 .iab button{margin-top:6px;padding:5px 10px;font-size:13px;background:#fff;color:#3d2f00;border-color:#cfae2a}
 .iab[hidden]{display:none}
+
+a.brand{text-decoration:none;color:inherit}
+a.brand:hover h1{color:var(--accent)}
+.steps li.done{cursor:pointer}
